@@ -1,0 +1,33 @@
+{
+  "name": "mon-projet-tutore",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "apexcharts": "^5.10.5",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1",
+    "vue3-apexcharts": "^1.11.1",
+    "vuetify": "^3.9.5",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "deepmerge": "^4.3.1",
+    "sass": "^1.90.0",
+    "sass-loader": "^16.0.5",
+    "vite": "^7.0.6",
+    "vite-plugin-vue-devtools": "^8.0.0"
+  }
+}

@@ -1,0 +1,528 @@
+
+.fonct12{
+    width: auto;
+    height: auto;
+
+}
+.fonct12{
+    width: 80px !important;
+    height: 30px !important;
+    max-height: 30px !important;
+
+}
+.photo_smarthphone{
+    width: 800px !important;
+    max-height: 30px !important;
+}
+#card-title{
+    font-size: 30px;
+}
+#title-auto{
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    text-decoration: overline;
+    text-decoration-color: rgb(16, 16, 145);
+
+}
+#namefooter{
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#card-title_2{
+    font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+#card-title_4{
+    font-size: 26px;
+    font-weight: 100;
+    text-transform: capitalize;
+    color:rgb(16, 16, 145);
+    margin-left: 8px;
+}
+.elie1245{
+    min-width: 1000px;
+    min-height: 700px;
+    width: 1000px;
+    height: 700px;
+    max-width: 1000px;
+    max-height: 700px;
+}
+#imgdet{
+    min-width: 156px;
+    min-height: 126px;
+    width: 156px;
+    height: 126px;
+    max-width: 156px;
+    max-height: 126px;
+}
+.sheetone{
+    background: #7e1378;
+    margin: 5px;
+    width: 450px;
+    height: 100px;
+    border: 20px !important ;
+    border-bottom-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
+    border-right-style: outset !important;
+}
+#cursive{
+    font-family:'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+#imgdetgr{
+    min-width: 336px;
+    min-height: 306px;
+    width: 196px;
+    height: 166px;
+    max-width: 196px;
+    max-height: 166px;
+}
+.uppercase{
+    text-transform: capitalize;
+}
+.dix-2{
+    font-size: 26px;
+}
+.elie12{
+    width: auto;
+    height: auto;
+    max-width: 1200px;
+    max-height: 1200px;
+}
+.rounded3{
+    border-radius:50px !important;
+}
+.overflow-y{
+    overflow-y: auto !important;
+}
+.width8{
+    max-width:400px
+}
+.bd23{
+    border-radius:12px !important;
+    margin-top:50px !important;
+}
+#numberst{
+    font-size: 70px;
+    align-items: center;
+    text-align: center;
+    color: yellow;
+}
+#numbercnd{
+    font-size: 70px;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+.custom-icon-btn:deep(.v-icon){
+    font-size:50px !important;
+}
+#titletrt{
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+    color: yellow;
+}
+.y-text{
+    color: yellow !important;
+}
+#titletth{
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+    color: black;
+}
+.titlettk{
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+    color: rgb(20, 20, 117);
+    font-weight:bold ;
+}
+.demiterrain{
+    color: blue !important;
+}
+.photoprofil{
+    width:250px;
+    height:250px;
+    border: 20px;
+    border-radius: 16px !important;
+    border-style: solid;
+
+}
+.eliegrizzly{
+    text-align: center;
+    justify-items: center;
+}
+.br-15{
+    border-radius: 15px !important;
+}
+.indigos{
+    background-color: #13237e9c !important;
+}
+.photoprofilDown{
+    width:200px !important;
+    height:200px;
+    border-radius: 16px !important;
+    border-style: solid;
+
+}
+.ml-20{
+    margin-left: 80px !important;
+}
+.green{
+    color:greenyellow;
+}
+h1#nameprofil{
+    margin-top: 60px !important;
+    font-size: 55px;
+}
+.size23{
+    size: 30px !important;
+}
+.bgdiv{
+   color:grey; 
+   height: 100px;
+}
+h1.google{
+    background: white;
+    color: rgb(23, 23, 121);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.overflow-y1{
+    height: auto;
+    margin: 2rem;
+    width: auto;
+}
+.max{
+    width: 1600px !important;
+}
+h1.google2{
+    background: white;
+    color: rgb(23, 23, 121);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 50px;
+}
+.overflow-x{
+    overflow-y:auto !important;
+    height:578px;
+}
+.overflow-x1{
+    overflow-y:auto !important;
+    height:758px;
+
+}
+.overflow-23{
+    overflow-y:auto !important;
+    height: 800px;
+    width: 1700px;
+}
+.box-shadow{
+    box-sizing: border-box;
+}
+.fireboys{
+    font-size: 80px;
+    margin-top: 70px;
+    box-sizing: content-box;
+}
+.hover-effect{
+    transition:0.2s;
+    cursor:pointer;
+}
+.hover-effect:hover{
+    background-color:white;
+    transform:scale(1.2);
+}
+h2#form{
+    font-size: 40px;
+    font-family:cursive;
+    font-weight: 100;
+    color:yellow;
+    text-align: center;
+    margin-bottom: 35px;
+    
+}
+h2#form1{
+    text-align: center;
+    margin-bottom:12px;
+}
+.auto{
+    width: auto !important;
+    height: auto !important;
+
+}
+#dodge{
+    border: 4px !important;
+    border-style:solid !important;
+    border-radius: 25px;
+    width: 100%;
+}
+#firedodge{
+    border: 3px !important;
+    border-style:solid !important;
+    border-radius: 7px;
+    width: 100%;
+}
+.abc{
+    width: 100%;
+}
+.mx-300{
+    max-height: 500px !;
+    overflow-y: auto !important;
+}
+#kinsh{
+    font-size: 25px !important;
+    font-display:fallback;
+}
+#bukav{
+    font-size: 35px !important;
+    font-display:fallback;
+}
+.mihuhi{
+    font-size: 30px;
+    font-family:monospace;
+    text-align: center;
+    text-transform: capitalize;
+    
+}
+.mt-40{
+    margin-top:140px !important ;
+}
+.bigger{
+    text-align: left;
+    cursor: text;
+    text-decoration: solid;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+/* ===================================================== */
+/* les donnes de la page messages smartphones */
+/* ===================================================== */
+
+.phone-container {
+    width: 100%;
+  background: #f0f0f0;
+  align-items: center;
+  justify-content: center;
+}
+.nom_convers{
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+.phone-card {
+    min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px !important;
+  overflow: hidden;
+} 
+.text-wrap{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Nombre de ligne a afficher */
+    -webkit-box-orient:vertical;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+h1#nameprofilDown#doo{
+    text-align: center !important;
+}
+.text-wrap1{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.messages-container {
+  flex: 1;
+  box-shadow: 0px 4px 20px rgb(8, 0, 36);
+  overflow-y: auto;
+  /* background: url('http://localhost/API_SPP/Src_Media/Wanny.jpg') center; */
+  padding: 10px;    
+  height: 86.7dvh;
+
+}
+
+
+.message-row {
+  margin: 3px 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+.message-card {
+  display: inline-block;
+  border-radius: 16px !important;
+  max-width: 100%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+
+.message-time {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 3px;
+}
+
+.chat-input {
+  border-top: 1px solid #e0e0e0;
+  gap: 8px;
+}
+
+.message-input {
+  flex: 1;
+}
+#card-times{
+    font-size: 10px;
+    align-content: center !important;
+}
+#card-message{
+    font-size: 14px;
+    font-style: none;
+    text-transform: capitalize;
+}
+.message-input :deep(.v-field) {
+  background: #f5f5f5 !important;
+  border-radius: 24px !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
+/* Animation pour les nouveaux messages */
+.message-card {
+  transition: all 0.2s ease;
+}
+
+.message-card:hover {
+  transform: scale(1.02);
+}
+
+/* Style pour le statut en ligne */
+.caption {
+  font-size: 12px;
+  color: yellow;
+  opacity: 0.8;
+}
+.text-left{
+    align-content: right !important;
+}
+.msg-rightclient{
+	text-align: right !important;
+	max-width: 85%;
+	justify-items: right;
+	white-space: normal !important;
+	word-wrap: break-word;
+	margin-left:auto;
+}
+.msg-leftclient fieldset{
+	background: #1013a586;
+	border-radius: 40px;
+	margin-right:auto;
+	border-bottom-left-radius:6px ;
+	padding: 9px 20px;
+}
+.message-wraper {
+	max-height: 650px;
+	max-width: 650px;
+	overflow-y: auto !important;
+}
+.msg-left{
+	text-align: left !important;
+	max-width: 85%;
+	justify-items: left;
+	white-space: normal !important;
+	word-wrap: break-word;
+}
+.msg-left fieldset{
+	background: #0a7a9c28;
+	border-radius: 40px;
+	margin-right:auto;
+	border-bottom-left-radius:6px ;
+	padding: 9px 20px;
+}
+.msg-right{
+	text-align: right !important;
+	max-width: 85%;
+	justify-items: right;
+	white-space: normal !important;
+	word-wrap: break-word;
+	margin-left:auto;
+}
+.day-sepServ{
+	text-align:center;
+	margin:10px 0;
+	color:gray !important;
+	font-weight:500;
+}
+.msg-right fieldset{
+	border-color: blue;
+	border-radius: 40px;
+	border-bottom-right-radius:6px ;
+	text-align: left;
+	padding: 9px 20px;
+}
+.msg{
+	margin-top: 5px;
+}
+.msg-leftclient{
+	text-align: left !important;
+	max-width: 85%;
+	justify-items: left;
+	white-space: normal !important;
+	word-wrap: break-word;
+}
+.cartAdmin{
+    min-width: 300px;
+    width:auto;
+}
+.box-shode{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 2px 2px rgb(16, 4, 85) !important;
+}
+.box-shodes{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 2px 2px rgb(243, 243, 247) !important;
+}
+
+.box-shode-y{
+    width: 300px;
+    box-sizing: border-box;
+     box-shadow: 0px 8px 8px yellow !important;
+}
+.numberCart{
+    color: yellow;
+    text-decoration: solid;
+    text-align: center;
+    font-family: cursive;
+    font-size: 60px;
+}
+.numberCartas{
+    color: rgb(7, 7, 92);
+    text-decoration: solid;
+    text-align: center;
+    font-family: cursive;
+    font-size: 60px;
+
+}
+.couleur_essai{
+    color:rgba(0, 0, 0, 0.322);
+}

@@ -1,0 +1,20 @@
+{
+    "name":"whatdu_you",
+    "short_name":"DY",
+    "start_url":"/",
+    "display":"standalone",
+    "background_color":"#ffffff",
+    "theme_color":"#1976d2",
+    "icons":[
+        {
+            "src":"/photo principale.png",
+            "sizes":"192x192",
+            "types":"image/png"
+        },
+        {
+            "src":"/photo principale.png",
+            "sizes":"512x512",
+            "types":"image/png"
+        }
+    ]
+}

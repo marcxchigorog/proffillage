@@ -1,0 +1,37 @@
+.messages-container_md {
+  flex: 1;
+  box-shadow: 0px 4px 20px rgb(8, 0, 36);
+  overflow-y: auto;
+  /* background: url('http://localhost/API_SPP/Src_Media/Wanny.jpg') center; */
+  padding: 10px;    
+  height: 550px;
+
+}
+.elieCursor{
+    cursor: default !important;
+
+}
+.titlesimba{
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+    color: red;
+    text-transform: capitalize;
+    box-shadow: -3px 3px 3px red;
+    text-shadow: 12px;
+}
+.red{
+  color: red !important;
+}
+.rounded-2{
+  border-radius: 30px !important;
+  border-bottom: 10px double yellow !important;
+  box-shadow: 0px 1px 8px white !important;
+}
+.photoprofilUp{
+    width:150px !important;
+    height:150px !important;
+    border-radius: 16px !important;
+    border-style: solid;
+
+}
