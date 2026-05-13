@@ -343,7 +343,6 @@ h1#nameprofilDown#doo{
   flex: 1;
   box-shadow: 0px 4px 20px rgb(8, 0, 36);
   overflow-y: auto;
-  /* background: url('http://localhost/API_SPP/Src_Media/Wanny.jpg') center; */
   padding: 10px;    
   height: 86.7dvh;
 
@@ -494,6 +493,10 @@ h1#nameprofilDown#doo{
     min-width: 300px;
     width:auto;
 }
+.cartAdmins{
+    min-width: 30px;
+    width:auto;
+}
 .box-shode{
     box-sizing: border-box;
     box-shadow: 0px 0px 2px 2px rgb(16, 4, 85) !important;
@@ -514,6 +517,13 @@ h1#nameprofilDown#doo{
     text-align: center;
     font-family: cursive;
     font-size: 60px;
+}
+.numberCarts{
+    color: yellow;
+    text-decoration: solid;
+    text-align: center;
+    font-family: cursive;
+    font-size: 30px;
 }
 .numberCartas{
     color: rgb(7, 7, 92);

@@ -23,12 +23,12 @@
             <v-card v-for="users in ListeUsers" :key="users.id" elevation="3" class="ma-3 width8">
                 <v-row no-gutters>
                     <v-col>
-                        <v-sheet color="grey" class="ma-2 rounded-2 photoprofilUp"  >
-                                <v-img :src="photo_elie"  class="photoprofilUp"></v-img>
+                        <v-sheet color="grey" class="ma-2 rounded-2 photoprofilUp">
+                            <v-img :src="photo_elie" class="photoprofilUp"></v-img>
                         </v-sheet>
                     </v-col>
                     <!-- pour le format de laptop et ipad -->
-                    <v-col v-if="$vuetify.display.lgAndUp" class="mt-2" cols="7">
+                    <v-col v-if="$vuetify.display.mdAndUp" class="mt-2" cols="7">
                         <v-chip class="ma-1 rounded3" width="200px"> {{ users.nom }} {{ users.prenom }}</v-chip>
                         <v-chip class="ma-1 rounded3">{{ users.profession }} </v-chip>
                         <v-chip class="ma-1 rounded3">{{ users.email }}</v-chip>
@@ -41,7 +41,7 @@
                             DETAILS </v-btn>
                     </v-col>
                     <!-- pour la visualisation sur le smartphone -->
-                    <v-col v-if="$vuetify.display.mobile" class="mt-2" cols="6">
+                    <v-col v-if="$vuetify.display.xs" class="mt-2" cols="6">
                         <v-chip class="ma-1 rounded3" width="200px"> {{ users.nom }} {{ users.prenom }}</v-chip>
                         <v-chip class="ma-1 rounded3">{{ users.profession }} </v-chip>
                         <v-chip class="ma-1 rounded3">{{ users.email }}</v-chip>
@@ -55,9 +55,20 @@
                     </v-col>
                 </v-row>
             </v-card>
-            <v-card class="bigger  ma-5 pa-5 " variant="text" v-if="!ListeUsers">
-                <h1> BONJOUR, Bienvenue sur WHATDU_YOU </h1>
-                <h2 color="indigo-darken-4">Publication de demande d'emploi est disponible</h2>
+            <v-card class="  ma-5  mt-8 pa-5  rounded " v-if="!ListeUsers">
+                <br>
+                <center> <img src="../../public/photo principale.png" width="70" /></center>
+                <br>
+                <v-row justify="center" class="biggest">Bienvenue sur <CENTER>Whatduyou</CENTER></v-row>
+                <br>
+                <br>
+                <v-sheet class="bg-surface-variant pa-2 rounded">
+                    Ce site, vous permettra de chercher et des trouver d'emploi ; disons pas immediatemment ni facilement mais
+                    rapidement
+                    en fonction
+                    de tes competences.
+                </v-sheet>
+
             </v-card>
 
         </v-row>
@@ -74,7 +85,7 @@ import axios from 'axios'
 // les importation des autres composants
 import detail from "@/Pages/src/detail.vue"
 
-const photo_elie = ref ("http://localhost/API_SPP/Src_Media/elie.jpg")
+const photo_elie = ref("http://localhost/API_SPP/Src_Media/elie.jpg")
 
 const ListeUsers = ref()
 

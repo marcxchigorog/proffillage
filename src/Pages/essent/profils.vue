@@ -44,7 +44,7 @@
             <!-- la visualisation des details en mode laptop -->
             <v-container fluid v-if="$vuetify.display.mdAndUp">
                 <v-card height="300px" class="ml-3" elevation="9">
-                    <v-row justify="center">
+                    <v-row >
                         <v-col class="ma-2 mt-4">
                             <v-row no-gutters>
                                 <v-col>
@@ -249,12 +249,12 @@
                 <v-row fluid>
                     <v-col>
                         <!-- ici vient le v-card contenant le switch pour changer le Status -->
-                        <v-card class="pa-3 ma-1" height="180px" elevation="8">
+                        <v-card class="pa-3 " height="180px" elevation="8">
                             <h2>Competences</h2>
-                            <v-row no-gutters justify="center">
+                            <!-- <v-row no-gutters justify="center">
                                 <v-btn class="ma-1 rounded3" color="indigo-darken-4" variant="outlined">ajouter</v-btn>
                                 <v-btn class="ma-1 rounded3" color="red" variant="outlined">supprimer</v-btn>
-                            </v-row>
+                            </v-row> -->
                             <v-row no-gutters class="ma-2" justify="center">
                                 <v-col>Changer votre status de <br> employé a Non employe </v-col>
                                 <v-col class="eliegrizzly" cols="2">
@@ -269,14 +269,16 @@
                         <v-card class="pa-3 ma-1" height="180px" elevation="8">
 
                             <h2>Historiques</h2>
-                            <h3>12/Mai/2005</h3>
+                            appel contact d'un client par rapport a ses competences 
                         </v-card>
                     </v-col>
                     <v-col>
                         <v-card class="pa-3 ma-1" height="180px" elevation="8">
 
                             <h2>Contacts</h2>
-                            <h3>+243 900 236 435</h3>
+                            <h3>+243 900 345 435</h3>
+                            <h3>+243 980 250 200</h3>
+                            <h3>+243 890 266 999</h3>
                         </v-card>
                     </v-col>
                 </v-row>

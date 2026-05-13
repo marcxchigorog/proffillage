@@ -1,5 +1,4 @@
 <template>
-
     <v-container v-if="$vuetify.display.mdAndUp" fluid>
         <v-row class="mt-4">
             <!-- la partie qui affiche les message selon les contact -->
@@ -139,7 +138,7 @@
         </v-row>
     </v-container>
     <!-- Interface smartphone -->
-    <v-container v-if="$vuetify.display.mdAndDown" class="phone-container pa-0" fluid>
+    <v-container v-if="$vuetify.display.xs" class="phone-container pa-0" fluid>
         <!-- partie pour affichers les messages selon les correspondants -->
         <v-col class="indigos" variant="outlined">
             <v-text-field class="mt-4 ml-3" color="black" append-icon="mdi-magnify"
@@ -147,7 +146,7 @@
             <v-divider thickness="3px" opacity="1" color="yellow" />
             <v-card ref="messagesContainer" class="messages-container">
                 <v-sheet class="ma-1 mt-1 rounded3" v-for="(mssg, i) in messagesones" :key="i"
-                    @click="ouvrir_conversation(mssg)" color="indigo-darken-4">
+                    @click="open_discussions(mssg)" color="indigo-darken-4">
                     <v-row no-gutters class="pa-2">
                         <v-col cols="3" class="mr-3">
                             <v-avatar size="80px" class="ml-2" color="white" rounded="1">
@@ -176,8 +175,8 @@ import { useRouter } from 'vue-router'
 
 const { show } = useSnackbar() // la variable qui pourra affiche les message du snackbar
 const Imageurl = ref('http://localhost/API_SPP/Src_Media/elie.jpg')
-const name = ref('ELIE CHIGOROGO Marc')
 const profession = ref('Senior Software Engineer')
+const router = useRouter()
 const messgSend = ref({
     contenue: '',
     user: '',
@@ -196,7 +195,6 @@ let interval = null
 onMounted(() => {
     interval = setInterval(()=>{
         recup_messages(),
-        // recup_messages_convers()
         openConversation()
     },500)
 })
@@ -265,8 +263,13 @@ const startVoiceCall = () => {
 // la fonction qui cherche l'id du destinateur
 function find_id_friend() {
     const membre = JSON.parse(sessionStorage.getItem('Discussion_client'));
-    const id_friend = membre
-    return id_friend
+    const friend = membre
+    if (friend) {
+        return friend
+    }
+    else {
+        return null
+    }
 }
 
 // la focntion asynchrone pour envoyer les messages et les enregistres
@@ -321,21 +324,23 @@ function formatJour(dateStr) {
     });
 }
 
-const openConversation = async (client_id) => {
+const openConversation = async () => {
     const id = find_id_user()
     const client = find_id_friend().id
-    const id_rec = client
-    const client_rec = id
     nom_client.value = find_id_friend().nom
     postnom_client.value = find_id_friend().postom
     prenom_client.value = find_id_friend().prenom
     const message = await axios.get(`http://localhost/API_SPP/Door/Clients/discussion.php?id=${id}&type=listMessagesenvoyes&client=${client}`);
-    const reponse = await axios.get(`http://localhost/API_SPP/Door/Clients/discussion.php?id=${id_rec}&type=listMessagesConvers&client=${client_rec}`);
+    const reponse = await axios.get(`http://localhost/API_SPP/Door/Clients/discussion.php?id=${client}&type=listMessagesConvers&client=${id}`);
 
     // fonction de melange et de fusionnement
     fusionnerMessages(message.data.user, reponse.data.user);
 }
 
+const open_discussions = async (client) =>{
+    ouvrir_conversation(client)
+    router.push('/Discussion1')
+}
 function close_dialog_step() {
     sessionStorage.removeItem('Discussion_client')
     

@@ -89,7 +89,7 @@
 
     </v-sheet>
     <!-- la partie du model du site pour android  -->
-    <v-div v-if="$vuetify.display.mdAndDown">
+    <v-div v-if="$vuetify.display.xs">
         <v-row no-gutters justify="center" class="mb-5">
             <h1 class='fireboy'>INSCRIPTION</h1>
         </v-row>

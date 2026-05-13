@@ -20,6 +20,40 @@
     box-shadow: -3px 3px 3px red;
     text-shadow: 12px;
 }
+.biggest{
+    cursor: text;
+    text-decoration: solid;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    margin-top:50px;
+}
+#ofCause{
+  min-width: 100%;
+  max-width: 100%;
+  align-items: center !important;
+}
+.limite-height{
+  overflow-x:auto;
+  max-height:400px !important;
+}
+.dodgexs{
+  opacity: 60%;
+  font-size:13px;
+  text-align:center;
+}
+.self-one{
+  width: 47%;
+  height: 60px;
+}
+.text-2-lines{
+    height: 113px;
+    -webkit-line-clamp: 3; /* Nombre de ligne a afficher */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#min-heigth{
+  min-width:300px !important ;
+}
 .red{
   color: red !important;
 }

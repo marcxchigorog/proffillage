@@ -163,7 +163,8 @@
             </v-row>
         </v-container>
     </v-sheet>
-    <v-sheet color="indigo-darken-4" height="300px" v-if="$vuetify.display.mdAndDown">
+    <!-- la partie interface smartphones  -->
+    <v-sheet color="indigo-darken-4" height="300px" v-if="$vuetify.display.xs">
         <v-sheet class="mt-2" width="100%" height="100%">
             <v-row no-gutters class="ma-2">
                 <v-text-field label="Recherche" variant="outlined" append-icon="mdi-magnify" />
@@ -275,7 +276,7 @@
             </v-card>
         </v-sheet>
     </v-sheet>
-    <v-app-bar v-if="$vuetify.display.mdAndDown" height="80" location="bottom">
+    <v-app-bar v-if="$vuetify.display.xs" height="80" location="bottom">
         <v-row no-gutters justify="center">
             <v-btn height="100%" color="indigo-darken-4" variant="tonal" class="pa-1 ">
                 <v-col align="center">

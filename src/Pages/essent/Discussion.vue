@@ -1,5 +1,5 @@
 <template>
-    <v-container v-if="$vuetify.display.mdAndDown" class="phone-container pa-0" fluid>
+    <v-container v-if="$vuetify.display.xs" class="phone-container pa-0" fluid>
         <!-- la partie  de messages qui affiche le si une on selectionne la conversation -->
         <v-card class="phone-card" elevation="24">
             <!-- En-tête WhatsApp -->
@@ -62,7 +62,7 @@
 
 </template>
 <script setup>
-import { onMounted, ref, nextTick } from 'vue'
+import { onMounted, ref, nextTick, onUnmounted } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
@@ -79,10 +79,16 @@ const messgSend = ref({
     dest: '',
 })
 const messages = ref([])
-
+let interval = (null)
 onMounted(() => {
-    // recup_messages_convers()
-    openConversation()
+    interval = setInterval(()=>{
+        openConversation()
+    },500)
+    
+})
+// permet eviter une erreur de memoire 
+onUnmounted (()=>{
+    clearInterval(interval)
 })
 
 // la function qui s'execute si une fois il click sur l'appel audio

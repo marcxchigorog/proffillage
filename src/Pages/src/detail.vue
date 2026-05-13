@@ -171,7 +171,7 @@
         </v-card>
     </v-dialog>
     <!-- la partie du dialogue qui pourra s'ouvrira si l'user est sur android ou au formation -->
-    <v-dialog v-model="dialogdetail" v-if="$vuetify.display.mobile" persistent class="justify-center align-center"
+    <v-dialog v-model="dialogdetail" v-if="$vuetify.display.xs" persistent class="justify-center align-center"
         width="1500px" height="auto">
         <v-card class=" ma-1 pa-2 elie12">
             <!-- l'icone et le titre du card  -->

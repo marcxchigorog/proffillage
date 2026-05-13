@@ -112,7 +112,7 @@
       <v-main>
          <v-sheet color="indigo-darken-4" class="mb-2" height="300px">
             <router-view />
-               <v-snackbar v-model="snackbar" :color="color" timeout="1000">{{ message }}</v-snackbar>
+               <v-snackbar v-model="snackbar" :color="color" timeout="2550">{{ message }}</v-snackbar>
          </v-sheet> 
       </v-main>
    </v-layout>
