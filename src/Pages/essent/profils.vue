@@ -44,7 +44,7 @@
             <!-- la visualisation des details en mode laptop -->
             <v-container fluid v-if="$vuetify.display.mdAndUp">
                 <v-card height="300px" class="ml-3" elevation="9">
-                    <v-row >
+                    <v-row>
                         <v-col class="ma-2 mt-4">
                             <v-row no-gutters>
                                 <v-col>
@@ -191,36 +191,44 @@
                             <div>{{ Membre?.Ville }}</div>
                         </v-col>
                     </v-row>
+                    <!-- le boutton pour passer a la visualisation du cv -->
                     <v-col align="center">
                         <v-btn @click="openedCurVitae(Membre)" variant="outlined" width="90%">Curriculum Vitae</v-btn>
                     </v-col>
                 </v-card>
                 <v-card elevation="5" class="pa-2 mt-2">
-                    <h2>Statistiques Clés</h2>
+                    <h2>Statistiques clés</h2>
                     <v-card variant="outlined" class="pa-1 ma-1" heigth="20px" color="grey">
                         <v-row justify="center" class=" ma-1">
-                            <v-rating hover :length="6" :size="50" :model-value="3" active-color="yellow" />
+                            <v-rating hover :length="6" v-if="theme === 'light'" :size="50" :model-value="3" active-color="indigo-darken-4" />
+                            <v-rating hover :length="6" v-if="theme === 'dark'" :size="50" :model-value="3" active-color="yellow" />
                             <h4>Nombre d'etoiles</h4>
                         </v-row>
                     </v-card>
-                    <v-card class="pa-1 ma-1" color="grey"><v-row no-gutters>
-                            <v-col cols="5">
+                    <v-sheet v-ripple class="pa-1 ma-1 rounded " color="grey" @click="openDial"><v-row no-gutters>
+                            <v-col  cols="3">
                                 <v-row no-gutters justify="center" height="100%">
-                                    <v-icon color="indigo-darken-4" size="80px">mdi-floor-plan</v-icon>
+                                    <v-icon color="indigo-darken-4"  v-if="theme === 'light'" size="80px">mdi-floor-plan</v-icon>
+                                    <v-icon color="yellow" v-if="theme === 'dark' " size="80px">mdi-floor-plan</v-icon>
                                 </v-row>
                             </v-col>
                             <v-col>
-                                <h2>Nombre de Projet</h2>
-                                <h3>0</h3>
+                                <h2 align="center">Nombre de Projet</h2>
+                                <h3 align="center">0</h3>
                             </v-col></v-row>
-                    </v-card>
+                            <center no-gutters class="small" v-if="theme === 'dark' "> Appuyer pour ajouter un projet </center>
+                            <center no-gutters class="smallx" v-if="theme === 'light'"> Appuyer pour ajouter un projet </center>
+                    </v-sheet>
+
                     <!-- la colonne du visualisation du status ou non employe -->
                     <v-cols>
                         <v-card class="pa-1 ma-1" variant="outlined">
                             <v-row no-gutters>
                                 <v-col align="center">
-                                    <v-icon color="indigo-darken-4" v-if="Status"
-                                        size="80px">mdi-check-decagram-outline</v-icon>
+                                    <v-icon color="indigo-darken-4" v-if="Status && theme === 'light'" size="80px">
+                                        mdi-check-decagram-outline</v-icon>
+                                    <v-icon color="yellow" v-if="Status && theme === 'dark'" size="80px">
+                                        mdi-check-decagram-outline</v-icon>
                                     <v-icon color="red" v-if="!Status" size="80px">mdi-cancel</v-icon>
                                 </v-col>
                                 <v-col>
@@ -232,20 +240,20 @@
                     </v-cols>
                     <v-card class="pa-1 ma-1" color="grey">
                         <v-row no-gutters>
-                            <v-col>
-                                <v-row no-gutters justify="center" height="100%">
-                                    <v-icon size="60px">mdi-school</v-icon>
-                                </v-row>
+                            <v-col align="center"  cols="3">
+                                    <v-icon size="60px" color="indigo-darken-4" v-if=" theme === 'light'" >mdi-school</v-icon>
+                                    <v-icon size="60px" color="yellow" v-if=" theme === 'dark'" >mdi-school</v-icon>
                             </v-col>
                             <v-col>
-                                <h2>nombre de diplomes</h2>
+                                <h2 align="center">Nombre de diplome</h2>
+                                <h3 align="center">0</h3>
                             </v-col>
                         </v-row>
                     </v-card>
                 </v-card>
             </v-template>
             <!-- les trois autres carte deu bas de la page -->
-            <v-container fluid>
+            <v-container fluid v-if="$vuetify.display.lg">
                 <v-row fluid>
                     <v-col>
                         <!-- ici vient le v-card contenant le switch pour changer le Status -->
@@ -267,14 +275,6 @@
                     </v-col>
                     <v-col>
                         <v-card class="pa-3 ma-1" height="180px" elevation="8">
-
-                            <h2>Historiques</h2>
-                            appel contact d'un client par rapport a ses competences 
-                        </v-card>
-                    </v-col>
-                    <v-col>
-                        <v-card class="pa-3 ma-1" height="180px" elevation="8">
-
                             <h2>Contacts</h2>
                             <h3>+243 900 345 435</h3>
                             <h3>+243 980 250 200</h3>
@@ -283,6 +283,26 @@
                     </v-col>
                 </v-row>
             </v-container>
+            <!-- la partie pour changer statut du profil membre -->
+            <v-co fluid v-if="$vuetify.display.xs">
+                <!-- ici vient le v-card contenant le switch pour changer le Status -->
+                <v-card class="pa-3 mt-2" height="220px" elevation="8">
+                    <v-card-title> <marquee direction="left" >Visualisation et modification status  public du profil</marquee></v-card-title>
+                    <v-row no-gutters class="ma-2" justify="center">
+                        <v-col>Changer votre status à lorsque vous avez un job en cours à
+                             l'employé mais aussi à Non employé lorsque vous étes hors-circuit !</v-col>
+                    </v-row>
+                    <v-row no-gutters class="ma-2" justify="center">
+                        <v-col class="eliegrizzly" cols="2">
+                            <v-switch @click="changeStatut()" v-model="Status" v-if=" theme === 'light'" color="indigo-darken-4" inset
+                                hide-details="ml-4"></v-switch>
+                            <v-switch @click="changeStatut()" v-model="Status" v-if=" theme === 'dark'" color="yellow" inset
+                                hide-details="ml-4"></v-switch>
+                        </v-col>
+                    </v-row>
+                </v-card>
+                
+            </v-co>
         </v-container>
     </v-sheet>
     <Dialogue ref="dialOpenProjet" />
@@ -298,6 +318,7 @@ const { show } = useSnackbar()
 const Status = ref()
 const dialOpenProjet = ref(false)
 const deliberant = ref()
+const theme = ref('light')
 const photo_profil = ref("http://localhost/API_SPP/pdf/MDIcons/profil.jpg")
 const Membre = ref(null)
 const FormData = ref({
@@ -318,28 +339,31 @@ function find_id_user() {
 
 }
 // Fonction pour prendre le donnees dans le sessionStorage avec la methode JSON.parse
-let interval = null
+let interval = (null)
 onMounted(async () => {
-    const membre = JSON.parse(sessionStorage.getItem('Membre'));
-    Membre.value = membre ?? null;
-    interval = setInterval(async () => {
-        //Charger la valuer du status profesionnel sauvergarder ou utiliser la preferences du systeme
-        const statussession = sessionStorage.getItem('status professionnel')
-        deliberant.value = statussession
-        console.error(deliberant.value)
-        if (statussession === 'Employé') {
-            Status.value = true
-            FormData.value.user = find_id_user()
-            FormData.value.vStatusend = 1
-            await axios.post('http://localhost/API_SPP/Door/Clients/ConfirmStatut.php', FormData.value)
-        }
-        else {
-            Status.value = false
-            FormData.value.user = find_id_user()
-            FormData.value.vStatusend = 0
-            await axios.post('http://localhost/API_SPP/Door/Clients/ConfirmStatut.php', FormData.value)
-        }
-    },10000)
+    interval = setInterval (()=>{
+        const membre = JSON.parse(sessionStorage.getItem('Membre'));
+        theme.value = sessionStorage.getItem('theme');
+        Membre.value = membre ?? null;
+        interval = setInterval(async () => {
+            //Charger la valuer du status profesionnel sauvergarder ou utiliser la preferences du systeme
+            const statussession = sessionStorage.getItem('status professionnel')
+            deliberant.value = statussession
+            if (statussession === 'Employé') {
+                Status.value = true
+                FormData.value.user = find_id_user()
+                FormData.value.vStatusend = 1
+                await axios.post('http://localhost/API_SPP/Door/Clients/ConfirmStatut.php', FormData.value)
+            }
+            else {
+                Status.value = false
+                FormData.value.user = find_id_user()
+                FormData.value.vStatusend = 0
+                await axios.post('http://localhost/API_SPP/Door/Clients/ConfirmStatut.php', FormData.value)
+            }
+        },300)
+    
+    },)
 })
 onUnmounted(() => {
     clearInterval(interval) // important pour eviter la fuite de memoire
@@ -348,7 +372,7 @@ onUnmounted(() => {
 function Modifier_indent() {
 
 }
-function sendTheFileToBDD(){
+function sendTheFileToBDD() {
     show("modification du profil en cours ", "indigo-darken-4")
 }
 async function openedCurVitae(item) {

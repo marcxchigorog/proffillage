@@ -213,7 +213,7 @@ h1.google2{
 }
 .overflow-x1{
     overflow-y:auto !important;
-    height:758px;
+    height:720px !important;
 
 }
 .overflow-23{
@@ -265,7 +265,29 @@ h2#form1{
     border: 3px !important;
     border-style:solid !important;
     border-radius: 7px;
+    width: 70%;
+    border-color: #151785fa !important;
+}
+#firedodges{
+    border: 3px !important;
+    border-style:solid !important;
+    border-radius: 7px;
+    width: 70%;
+    border-color: yellow !important;
+}
+#firedodgexs{
+    border: 3px !important;
+    border-style:solid !important;
+    border-radius: 7px;
     width: 100%;
+    border-color: #151785fa !important;
+}
+#firedodgesxs{
+    border: 3px !important;
+    border-style:solid !important;
+    border-radius: 7px;
+    width: 100%;
+    border-color: yellow !important;
 }
 .abc{
     width: 100%;

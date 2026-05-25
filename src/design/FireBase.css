@@ -24,14 +24,20 @@
     cursor: text;
     text-decoration: solid;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
-    margin-top:50px;
+    font-size: 40px;
+    margin-top:30px;
 }
+.width100{
+  width: 100dvw;
+  font-size: large !important;
+}
+
 #ofCause{
-  min-width: 100%;
-  max-width: 100%;
-  align-items: center !important;
+  min-width: 100dvw;
+  width: 100dvw;
+  max-width: 100dvw;
 }
+
 .limite-height{
   overflow-x:auto;
   max-height:400px !important;
@@ -40,6 +46,29 @@
   opacity: 60%;
   font-size:13px;
   text-align:center;
+}
+h1.nameprofil{
+
+}
+.small{
+  font-size:14px;
+  font-family: 'calibri';
+  color: rgb(20, 23, 150);
+}
+.smallx{
+  font-size:14px;
+  font-family: 'calibri';
+  color: yellow;
+}
+.mx-hhhh{
+  min-height: 80dvh !important;
+  height: 80dvh !important;
+  max-height: 80dvh !important;
+}
+.mx-hei{
+  min-height: 75dvh !important;
+  height: 75dvh !important;
+  max-height: 75dvh !important;
 }
 .self-one{
   width: 47%;

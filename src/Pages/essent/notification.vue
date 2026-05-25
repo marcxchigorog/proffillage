@@ -164,147 +164,72 @@
         </v-container>
     </v-sheet>
     <!-- la partie interface smartphones  -->
-    <v-sheet color="indigo-darken-4" height="300px" v-if="$vuetify.display.xs">
-        <v-sheet class="mt-2" width="100%" height="100%">
-            <v-row no-gutters class="ma-2">
-                <v-text-field label="Recherche" variant="outlined" append-icon="mdi-magnify" />
-            </v-row>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-            <v-card elevation="8" class="ma-2 pa-1" variant="outlined">
-                <v-row no-gutters>
-                    <v-row dense no-gutters justify="center">
-                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
-                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
-                        </v-card>
-                        <v-col>
-                            <center>
-                                <h2>Publication</h2>
-                            </center>
-                            {{ notication }}
-                        </v-col>
-                    </v-row>
-                </v-row>
-            </v-card>
-        </v-sheet>
-    </v-sheet>
-    <v-app-bar v-if="$vuetify.display.xs" height="80" location="bottom">
-        <v-row no-gutters justify="center">
-            <v-btn height="100%" color="indigo-darken-4" variant="tonal" class="pa-1 ">
-                <v-col align="center">
-                    <v-row no-gutters justify="center">
-                        <v-icon size="30">mdi-Bell-badge</v-icon></v-row>
-                    <v-row no-gutters>Toutes</v-row>
-                </v-col></v-btn>
-            <v-btn height="100%" color="indigo-darken-4" variant="tonal" class="pa-1 ma-1">
-                <v-col align="center">
-                    <v-row no-gutters justify="center"><v-icon size="30">mdi-format-float-none</v-icon></v-row>
-                    <v-row no-gutters>Non lues</v-row>
-                </v-col></v-btn>
-            <v-btn height="100%" to="/Discussion" color="indigo-darken-4" variant="tonal" class="pa-1 ">
-                <v-col align="center">
-                    <v-row no-gutters justify="center"><v-icon size="30">mdi-chat</v-icon></v-row>
-                    <v-row no-gutters>Chat</v-row>
-                </v-col></v-btn>
-                <v-btn height="100%" color="indigo-darken-4" variant="tonal" class="pa-1 ma-1 ">
-                <v-col align="center">
-                    <v-row no-gutters justify="center"><v-icon size="30">mdi-download</v-icon></v-row>
-                    <v-row no-gutters></v-row>
-                </v-col></v-btn>
-            
+    <v-sheet class="mt-2"  v-if="$vuetify.display.xs">
+        <v-row no-gutters justify="center" class="mt-5">
+            <v-btn color="indigo-darken-4" variant="outlined" @click="trierNotification('toutes')" v-if="theme == 'light'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-Bell-badge</v-icon> Toutes</v-btn>
+            <v-btn color="indigo-darken-4" variant="outlined" @click="trierNotification('Non lues')" v-if="theme == 'light'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-format-float-none</v-icon> Non lues</v-btn>
+            <v-btn color="indigo-darken-4" variant="outlined" @click="push_to_sms()" v-if="theme == 'light'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-chat</v-icon> Chats</v-btn>
+            <v-btn color="yellow" variant="outlined" @click="trierNotification('toutes')" v-if="theme == 'dark'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-Bell-badge</v-icon> Toutes</v-btn>
+            <v-btn color="yellow" variant="outlined" @click="trierNotification('Non lues')" v-if="theme == 'dark'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-format-float-none</v-icon> Non lues</v-btn>
+            <v-btn color="yellow" variant="outlined" @click="push_to_sms()" v-if="theme == 'dark'" class="pa-1 ma-1 rounded3">
+                <v-icon size="20">mdi-chat</v-icon> Chats</v-btn>
         </v-row>
-    </v-app-bar>
+        <v-row no-gutters class="ma-2">
+            <h2 id="nameprofil">Centre de Notifications</h2>
+        </v-row>
+        <v-row class="overflow-y pa-2 mx-hhhh">
+            <v-card elevation="8" class="ma-2 pa-1" v-for="i in NombreNotification" :key="i" variant="outlined">
+                <v-row no-gutters>
+                    <v-row dense no-gutters justify="center">
+                        <v-card align-self="center" color="indigo-darken-4" class="ml-1 mr-6" cols="2">
+                            <v-icon color="yellow" class="ml-6 mr-6" size="70px">mdi-State-machine</v-icon>
+                        </v-card>
+                        <v-col>
+                            <center>
+                                <h2>Publication</h2>
+                            </center>
+                            {{ notication }}
+                        </v-col>
+                    </v-row>
+                </v-row>
+            </v-card>
+        </v-row>
+    </v-sheet>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useSnackbar } from '@/design/useSnackbar'
+import router from '@/router'
 
+const {  show }  = useSnackbar()
 const notication = ref("Bonjour,Elie chigorogo l'un de ingenieur en software viens d'ajouter une nouvelle proffession a ses capacites")
+const NombreNotification = 10
+const theme = ref('light')
+
+let interval = null
+
+function prendreTheme() {
+    theme.value = sessionStorage.getItem('theme')
+}
+function trierNotification (methode){
+    show('Trie de message '+methode, "success")
+}
+function push_to_sms (){
+    router.push('/Discussion')
+}
+
+onMounted(() => {
+    interval = setInterval(() => {
+        prendreTheme()
+    },250)
+})
+onUnmounted(() => {
+    interval
+})
+
 </script>

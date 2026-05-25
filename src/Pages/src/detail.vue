@@ -283,7 +283,6 @@ const client = ref()
 const photo_profil = ('http://localhost/API_SPP/pdf/MDIcons/profil.jpg')
 const Themesession = ref()
 const member = ref([])
-const statusMembre = ref()
 const indetifiantmembre = ref()
 
 
@@ -294,6 +293,23 @@ async function opendialdet(Client) {
     Themesession.value = sessionStorage.getItem('theme')
     try {
         const response = await axios.get(`http://localhost/API_SPP/Door/Clients/DetailCustomer.php?id=${encodeURIComponent(client.value)}`,
+            { withCredentials: true });
+        if (response && response.data) {
+            // support different shapes: res.data.client or res.data.data
+            member.value = response.data.client
+        }
+    }
+    catch (e) {
+        console.error('Erreur fetchClientDetails', e);
+    }
+}
+
+async function opendialdetaille(Client) {
+    dialogdetail.value = true
+    client.value = Client
+    Themesession.value = sessionStorage.getItem('theme')
+    try {
+        const response = await axios.get(`http://localhost/API_SPP/Door/Clients/DetailCustomer2.php?id=${encodeURIComponent(client.value)}`,
             { withCredentials: true });
         if (response && response.data) {
             // support different shapes: res.data.client or res.data.data
@@ -350,12 +366,12 @@ function find_id_user() {
 
 }
 let interval = null
-onMounted(() => {
- interval = setInterval(async () => {
+onMounted(async() => {
+//  interval = setInterval(async () => {
         const response = await axios.get(`http://localhost/API_SPP/Door/Clients/Verification.php?id=${encodeURIComponent(client.value)}&types=VerifiStatus`,
             { withCredentials: true } )
         indetifiantmembre.value =response.data.Status
-    }, 1400)
+    // },)
 })
 onUnmounted(() => {
     clearInterval(interval) // important pour eviter la fuite de memoire
@@ -365,5 +381,7 @@ onUnmounted(() => {
 
 defineExpose({
     opendialdet,
+    opendialdetaille,
+
 })
 </script>

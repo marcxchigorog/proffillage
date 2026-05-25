@@ -1,9 +1,9 @@
 <template>
    <v-layout>
-      <v-app-bar color="yellow" class="box-shode-y"  v-if="showAppBar"  max-width="100%">
+      <v-app-bar color="yellow" class="box-shode-y" v-if="showAppBar"  max-width="100%">
          <v-app-bar-nav-icon color="black" class="ma-2" variant="text" @click.stop="drawer = !drawer" />
          <v-tool-bar>
-            <h2 class=" ml-2 mr-6" color="indigo-darken-4">Whatdu_you</h2>
+            <h2 class=" ml-2 mr-6" color="indigo-darken-4">Whatdu_youdu</h2>
          </v-tool-bar>
          <!-- le bouton de zoom et aussi de tois points sur un laptop -->
          <template v-if="$vuetify.display.mdAndUp">
@@ -13,12 +13,12 @@
             </div>
          </template>
          <div v-if = "$vuetify.display.xs">
-            <v-btn icon="mdi-filter" @click="openHeadfilter" variant="text"></v-btn>
+            <v-btn icon="mdi-magnify" color="indigo-darken-4" v-if="ShowIconFilterAppBar" @click="openHeadfilter" variant="text"></v-btn>
          </div>
          <!-- le bouton de theme est profil sur un laptop -->
          <v-row justify="center" v-if="$vuetify.display.mdAndUp">
             <!-- le bouton de profil -->
-            <v-btn size="xxx-large" class="pa-3 mr-5" to="/profils" color="indigo-darken-4" icon variant="outlined">
+            <v-btn size="xx-large" class="pa-3 mr-5" to="/profils" color="indigo-darken-4" icon variant="outlined">
                <v-icon size="x-large">mdi-account-outline</v-icon>
             </v-btn>
             <!-- le bouton pour le theme du site -->
@@ -80,11 +80,7 @@
                   Projet</v-btn>
             </center>
          </v-list-item>
-         <v-list-item>
-            <center><v-btn id="router" to="/inscription" width="100%"> <v-icon size="x-large"></v-icon>
-                  inscription</v-btn>
-            </center>
-         </v-list-item>
+         
          <v-list-item>
             <center><v-btn id="router" to="/notifs" width="100%"> <v-icon size="x-large">mdi-bell-badge</v-icon>
                   notification</v-btn>
@@ -155,6 +151,7 @@ onMounted(() => {
 const route = useRoute()
 
 const showAppBar = (computed(()=>!route.meta.hideAppBar))
+const ShowIconFilterAppBar = (computed(()=>!route.meta.hideIconFilterAppBar))
 
 const drawer = ref(false)
 const headfilter = ref(null)

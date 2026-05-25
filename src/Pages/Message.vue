@@ -63,7 +63,7 @@
                                 <v-list>
 
                                     <!-- Appel vidéo -->
-                                    <v-list-item @click="startVideoCall('Appel en cours', 'veuillez repondre')">
+                                    <v-list-item @click="startVideoCall('Appel en cours', 'appel video sur whatdu_youdu')">
                                         <v-list-item-title>
                                             <v-icon start>mdi-video</v-icon>
                                             Appel vidéo
@@ -242,18 +242,18 @@ const startVideoCall = (title, body) => {
     // if (permis = "default"){
     //     permis = Notification.requestPermission()
     // }
-    if (permis === "granted") {
-        new Notification(title, {
-            body
-            // icon:'@/src/src/photo principale.png',
-            // tag:'calling',
-            // renotify : true 
-        })
-        // Notification.onclick = () => {
-        //     window.focus()
-        //     console.error('Notification cliquer')
-        // }
-    }
+    // if (permis === "granted") {
+    //     new Notification(title, {
+    //         body,
+    //         icon:'@/src/src/photo principale.png',
+    //         tag:'calling',
+    //         renotify : true 
+    //     })
+    //  Notification.onclick = () => {
+    //      window.focus()
+    //      console.error('Notification cliquer')
+    //     }
+    // }
 
 }
 

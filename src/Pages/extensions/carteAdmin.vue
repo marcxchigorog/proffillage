@@ -74,7 +74,7 @@
 
 </template>
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import axios from 'axios';
 const numero = ref(125)
 const Total = ref({
@@ -87,8 +87,10 @@ const Total = ref({
 const Admins = ref(3)
 
 ////onmouted les fichiers du backend
-onMounted(async () => {
-    const personne = await axios.get('http://localhost/API_SPP/Door/Root/countID.php?type=Personnes');
+let interval = null 
+onMounted(() => {
+    interval = setInterval(async ()=>{
+        const personne = await axios.get('http://localhost/API_SPP/Door/Root/countID.php?type=Personnes');
     Total.value.Inscription = personne.data.Nbre
 
     const Admins = await axios.get('http://localhost/API_SPP/Door/Root/countID.php?type=Administrateur');
@@ -102,6 +104,11 @@ onMounted(async () => {
 
     const N_employe = await axios.get('http://localhost/API_SPP/Door/Root/countID.php?type=Non_employe');
     Total.value.N_employe = N_employe.data.Nbre
+    },1000)
+    
+})
+onUnmounted(()=>{
+    clearInterval(interval)
 })
 
 </script>

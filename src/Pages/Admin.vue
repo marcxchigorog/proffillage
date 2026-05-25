@@ -1,76 +1,95 @@
 <template>
     <!-- la partie de visualisation dans un smartphone -->
-    <v-row v-if="$vuetify.display.xs" id="ofCause">
-        <h1 align="center" id="numberst">DashBoard Admin</h1>
-        <v-row no-gutters width="90%" class="pa-1 mb-2">
-            <carteAdmin />
-        </v-row>
-        <!-- le premier visualiseur de donnees  -->
-        <v-col align="center" class="box-shode rounded ml-1">
+    <v-container v-if="$vuetify.display.xs" id="ofCause" class="pa-2">
+        <v-row align="center">
+            <h1 align="center" id="numberst">DashBoard Admin</h1>
+            <v-row no-gutters width="90%" class="pa-1 mb-2">
+                <carteAdmin />
+            </v-row>
+            <!-- le premier visualiseur de donnees  -->
+            <v-col align="center" class="box-shode rounded ml-1">
                 <v-card-title>Visualisation des Données</v-card-title>
                 <v-card-main>
                     <apexchart :type="ChartOPtionnel.chart.type" :height="ChartOPtionnel.chart.height"
                         :options="ChartOPtionnel" :series="ChartOPtionnel.series" />
                 </v-card-main>
-        </v-col>
+            </v-col>
 
-        <!-- Partie qui concerne la liste des inscriptions realises -->
-        <v-row no-gutters class="ml-1 ">
-            <v-col cols="12">
-                <v-card elevation="9" class="ml-1 mb-1 mt-1">
-                    <v-card-title>Inscription realisées</v-card-title>
+            <!-- Partie qui concerne la liste des inscriptions realises -->
+            
+                    <v-card elevation="9" width="100%" align="center" class="ml-3 mr-3 mt-2 mb-2 ">
+                        <v-card-title>Inscription realisées</v-card-title>
+                        <v-card-main>
+                            <v-data-table density="compact" class="text-caption" id="min-heigth" :items="listClient"
+                                :headers="Entete_Hed_sm" striped="even" variant="outlined">
+                                <template #item.Actions="{ item }">
+                                    <v-row>
+                                        <v-btn size="30" variant="flat" class="mr-2" @click.stop="AllowedMember(item)"
+                                            icon><v-icon size="30"
+                                                color="yellow">mdi-check-decagram-outline</v-icon></v-btn>
+                                        <v-btn size="30" variant="flat" class=" mr-2" @click="viewClientWait(item)"
+                                            icon><v-icon size="30"
+                                                color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
+                                        <v-btn size="30" variant="flat" @click="deleteClient(item)" icon><v-icon
+                                                size="30" color="error">mdi-delete-sweep</v-icon></v-btn>
+                                    </v-row>
+                                </template>
+                            </v-data-table>
+                        </v-card-main>
+                    </v-card>
+             
+                <v-card elevation="9" width="100%"  align="center" class="ml-3 mr-3 mt-2 mb-2 pa-1 ">
+                    <v-card-title>Visualisation des status</v-card-title>
                     <v-card-main>
-                        <v-data-table density="compact" class="text-caption" id="min-heigth" :items="listClient"
-                            :headers="Entete_Hed_sm" striped="even" variant="outlined">
-                            <template #item.Actions="{ item }">
-                                <v-row>
-                                    <v-btn size="30" variant="flat" class="mr-2" @click.stop="AllowedMember(item)"
-                                        icon><v-icon size="30"
-                                            color="yellow">mdi-check-decagram-outline</v-icon></v-btn>
-                                    <v-btn size="30" variant="flat" class=" mr-2" @click.stop="viewClient(item)"
-                                        icon><v-icon size="30"
-                                            color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
-                                    <v-btn size="30" variant="flat" @click="deleteClient(item)" icon><v-icon size="30"
-                                            color="error">mdi-delete-sweep</v-icon></v-btn>
-                                </v-row>
-                            </template>
-                        </v-data-table>
+                        <apexchart type="bar" :options="ChartOptions" :series="ChartOptions.series" />
                     </v-card-main>
                 </v-card>
-            </v-col>
-
-        </v-row>
-        <v-col align="center" class="box-shode rounded ma-1">
-            <v-card elevation="9">
-                <v-card-title>Visualisation des status</v-card-title>
-                <v-card-main>
-                    <apexchart type="bar" :options="ChartOptions" :series="ChartOptions.series" />
-                </v-card-main>
-            </v-card>
-        </v-col>
-        <!-- visualisation des donnees selon les jours de la semaines -->
-        <v-row>
-            <v-col cols="12">
-             <v-card elevation="9">
-                <v-card-title>Inscription Acceptées</v-card-title>
-                <v-card-main >
-                    <v-data-table class="ml-4 text-caption" :items="listAlow" :headers="Entete_Hed_sm" striped="even">
-                        <template #item.Actions="{ item }">
-                            <v-row>
-                                <v-btn size="30" variant="flat" class=" mr-2" @click.stop="viewClient(item)"
-                                    icon><v-icon size="30" color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
-                                <v-btn size="30" variant="flat" @click="deleteClient(item)" icon><v-icon size="30"
-                                        color="error">mdi-delete</v-icon></v-btn>
-                            </v-row>
-                        </template>
-                    </v-data-table>
-                </v-card-main>
-            </v-card>   
-            </v-col>
+            <!-- visualisation des donnees selon les jours de la semaines -->
+                    <v-card elevation="9" width="100%" align="center" class="ml-3 mr-3 mt-2 mb-2 ">
+                        <v-card-title>Inscription Acceptées</v-card-title>
+                        <v-card-main>
+                            <v-data-table class="ml-4 text-caption" :items="listAlow" :headers="Entete_Hed_sm"
+                                striped="even">
+                                <template #item.Actions="{ item }">
+                                    <v-row>
+                                        <v-btn size="30" variant="flat" class=" mr-2" @click.stop="viewClientAllow(item)"
+                                            icon><v-icon size="30"
+                                                color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
+                                        <v-btn size="30" variant="flat" @click="deleteClient(item)" icon><v-icon
+                                                size="30" color="error">mdi-delete</v-icon></v-btn>
+                                    </v-row>
+                                </template>
+                            </v-data-table>
+                        </v-card-main>
+                    </v-card>
+                <v-card elevation="9" align="center" width="100%" class="ml-3 mr-3 mt-2 mb-2  ">
+                    <v-card-title>Accées Rapide</v-card-title>
+                    <v-card-main >
+                        <v-col v-if="theme === 'light'">
+                            <v-btn @click="inscription" color="indigo-darken-4" class="ma-2 rounded3" width="80%">Ajout d'un membre</v-btn><br>
+                            <v-btn color="indigo-darken-4" class="ma-2 rounded3" width="80%">Modifier la P.CF</v-btn><br>
+                            <v-btn  color="indigo-darken-4" class="ma-2 rounded3" width="80%">Lancer un avis public</v-btn>
+                        </v-col>
+                        <v-col v-if="theme === 'dark'">
+                            <v-btn  @click="inscription" color="yellow" class="ma-2 rounded3" width="80%">Ajout d'un membre</v-btn><br>
+                            <v-btn  color="yellow" class="ma-2 rounded3" width="80%">Modifier la P.CF</v-btn><br>
+                            <v-btn  color="yellow" class="ma-2 rounded3" width="80%">Lancer un avis public</v-btn>
+                        </v-col>
+                        
+                        
+                    </v-card-main>
+                </v-card>
             
-
+                <v-card elevation="9" width="100%" class="ml-3 mr-3 mt-2 mb-2 ">
+                    <v-card-title>Controle des justificatifs</v-card-title>
+                    <v-card-main>
+                        <v-data-table striped="even" />
+                    </v-card-main>
+                </v-card>
+            
         </v-row>
-    </v-row>
+    </v-container>
+
 
     <!-- la partie de visualisation du ecran superieur a 600px -->
     <v-row v-if="$vuetify.display.lgAndUp">
@@ -100,7 +119,7 @@
                                     <v-btn size="50" variant="flat" class="mr-2" @click.stop="AllowedMember(item)"
                                         icon><v-icon size="50"
                                             color="yellow">mdi-check-decagram-outline</v-icon></v-btn>
-                                    <v-btn size="50" variant="flat" class=" mr-2" @click.stop="viewClient(item)"
+                                    <v-btn size="50" variant="flat" class=" mr-2" @click.stop="viewClientWait(item)"
                                         icon><v-icon size="40"
                                             color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
                                     <v-btn size="50" variant="flat" @click="deleteClient(item)" icon><v-icon size="40"
@@ -129,7 +148,7 @@
                         <v-data-table :items="listAlow" :headers="Entete_Hed" striped="even">
                             <template #item.Actions="{ item }">
                                 <v-row>
-                                    <v-btn size="50" variant="flat" class=" mr-2" @click.stop="viewClient(item)"
+                                    <v-btn size="50" variant="flat" class=" mr-2" @click.stop="viewClientAllow(item)"
                                         icon><v-icon size="40"
                                             color="indigo-darken-4">mdi-guy-fawkes-Mask</v-icon></v-btn>
                                     <v-btn size="50" variant="flat" @click="deleteClient(item)" icon><v-icon size="40"
@@ -164,19 +183,23 @@
         </v-row>
     </v-row>
 
-
+    <detail ref="DialogueDet"></detail>
 </template>
+
+
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted,onUnmounted, computed } from 'vue';
 import axios from 'axios'
 import router from '@/router/index'
 import carteAdmin from './extensions/carteAdmin.vue';
 import { useApexTheme } from '@/design/ApexChart';
+import detail from './src/detail.vue';
+const DialogueDet = ref (null)
 const { apexTheme } = useApexTheme()
+const theme = ref ('light')
 
 const listClient = ref([])
 const listAlow = ref([])
-
 
 const ChartOptions = ref({
     ...apexTheme.value,
@@ -322,6 +345,15 @@ async function AllowedMember(item) {
     }
 }
 
+async function viewClientAllow (item){
+    const client_id = item.ID
+    DialogueDet.value.opendialdet(client_id)
+}
+async function viewClientWait (item){
+    const client_id = item.ID
+    DialogueDet.value.opendialdetaille(client_id)
+}
+
 async function deleteClient(item) {
     // confirmation minimale
     console.log(item)
@@ -342,6 +374,15 @@ async function deleteClient(item) {
     }
 }
 
+let interval = (null)
+onMounted(()=>{
+    interval = setInterval (()=>{
+        theme.value = sessionStorage.getItem('theme')
+    },300)
+})
+onUnmounted(()=>{
+    clearInterval(interval)
+})
 
 onMounted(async () => {
     try {

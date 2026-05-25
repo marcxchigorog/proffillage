@@ -13,15 +13,15 @@ import convers from '@/Pages/essent/Discussion.vue'
 const routes = [
     {path:'/',redirect:'/Acceuil'},
     {path:'/Acceuil',component:Acceuil},
-    {path:'/Projet',component:Pojet},
-    {path:'/Discussion',component:Message},
-    {path:'/inscription',component:inscr},
-    {path:'/notifs',component:notification},
-    {path:'/NouveauProjet',component:inscriProjet},
+    {path:'/Projet',component:Pojet,meta:{hideIconFilterAppBar:true}},
+    {path:'/Discussion',component:Message,meta:{hideIconFilterAppBar:true}},
+    {path:'/inscription',component:inscr,meta:{hideIconFilterAppBar:true}},
+    {path:'/notifs',component:notification,meta:{hideIconFilterAppBar:true}},
+    {path:'/NouveauProjet',component:inscriProjet,meta:{hideIconFilterAppBar:true}},
     {path:'/Discussion1',component:convers,meta:{hideAppBar:true}},
-    {path:'/AdminAccess',component:admin},
-    {path:'/connexion',component:Connexion},
-    {path:'/profils',component:profils}
+    {path:'/AdminAccess',component:admin,meta:{hideIconFilterAppBar:true}},
+    {path:'/connexion',component:Connexion,meta:{hideIconFilterAppBar:true}},
+    {path:'/profils',component:profils,meta:{hideIconFilterAppBar:true}}
 ]
 
 const router = createRouter ({

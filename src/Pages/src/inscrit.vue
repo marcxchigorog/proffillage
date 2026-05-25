@@ -102,7 +102,8 @@
                 </v-row>
                 <v-row no-gutters>
                     <v-text-field v-model="FormData.client.prenom" :rules="labeltext" class="mr-1" label="prenom" variant="outlined" />
-                    <v-text-field v-model="FormData.Profession.name" :rules="labeltext" label="profession" variant="outlined" />
+                    <v-text-field v-model="FormData.client.password" class="mr-1" :rules="passwRules"
+                            label="Password" variant="outlined" />
                 </v-row>
                 <v-row no-gutters>
                     <v-col><v-text-field v-model="FormData.Adresse.birth" type="date" class="mr-1"
@@ -112,24 +113,25 @@
                             label="sexe" variant="outlined" />
                     </v-col>
                 </v-row>
-                <v-row no-gutters>
-                    <v-col><v-text-field v-model="FormData.Profession.year_ins" class="mr-1"
-                            label="Anne insertion" variant="outlined" />
-                    </v-col>
-                    <v-col><v-text-field v-model="FormData.client.password" class="mr-1"
-                            label="Password" variant="outlined" />
-                    </v-col>
-                </v-row>
-                <v-row no-gutters>
+                 <v-row no-gutters>
                     <v-text-field v-model="FormData.Adresse.Province" :rules="labeltext" class="mr-1" label="Province"
                         variant="outlined" />
                     <v-text-field v-model="FormData.Adresse.Ville" :rules="labeltext" label="Ville" variant="outlined" />
                 </v-row>
+                
+                <h2 id="form1">Détails professionnels:</h2>
                 <v-row no-gutters>
                     <v-text-field v-model="FormData.client.mail" :rules="emailrules" class="mr-1" label="Adresse mail" variant="outlined" />
-                    <v-text-field v-model="FormData.client.phone" label="Telephone" variant="outlined" />
+                    <v-text-field v-model="FormData.client.phone"  label="Telephone" variant="outlined" />
                 </v-row>
-                <h2 id="form1">Détails professionnels:</h2>
+                <v-row no-gutters>
+                    <v-col><v-text-field v-model="FormData.Profession.year_ins" class="mr-1"
+                            label="Anne insertion" variant="outlined" />
+                    </v-col>
+                    <v-col>
+                    <v-text-field v-model="FormData.Profession.name" :rules="labeltext" label="profession" variant="outlined" />
+                    </v-col>
+                </v-row>
                 <v-row no-gutters>
                     <v-text-field class="mr-1" label="Niveau Experience" variant="outlined" />
                     <v-text-field label="Poste/Titre" variant="outlined" />
@@ -138,16 +140,18 @@
                 <v-file-input label="Diplomes" variant="outlined" prepend-icon="mdi-note-outline" />
                 <v-file-input label="Projets Réalisés" variant="outlined" prepend-icon="mdi-folder-open-outline" />
                 <h2 id="form1">consentement:</h2>
-                <v-checkbox id="checkbox" label="Case a cocher : j'acceptes les conditions génerales et la politique de
+                <v-btn class="rounded3 ma-1 pa-2 " @click="OpenPolitiqueConf" color="indigo-darken-4">
+                    <v-icon color="yellow" class="ml-2 mr-3" size="20">mdi-eye</v-icon>Politique de confidentialite</v-btn>
+                <v-checkbox id="checkbox" v-model="case_confident" label="Case a cocher : j'acceptes les conditions génerales et la politique de
                             confidentialite" />
                 <h2 id="form1">Validation:</h2>
-                <v-btn class="abc rounded3 pa-3" :loading="loading" @click="SubmitFormuler" color="indigo-darken-4">S'inscrire
+                <v-btn v-if="case_confident" class="abc rounded3 pa-3" :loading="loading" @click="SubmitFormuler" color="indigo-darken-4">S'inscrire
                     Maintenant</v-btn>
 
             </v-card>
         </v-container>
     </v-div>
-    <Dialogue ref="openPol" />
+    <Dialogue ref="openPol" @majValeur="validePolitique" />
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -156,6 +160,7 @@ import Dialogue from '@/Pages/extensions/filterheader.vue'
 
 const openPol = ref(false)
 const loading = ref(false)
+const case_confident = ref (false)
 
 const itemes = (['Masculin', 'Feminin'])
 const FormData = ref({
@@ -182,28 +187,32 @@ const FormData = ref({
 })
 
 //les regles des v-text-field pour n'est pasn'importe quoi
-const passwRules = (v) => {
-    if (!v) return 'Mot de passe requis'
-    if (v.lenght < 8) return 'Au minimum 8'
-    if (!/[A-Z]/.test(v)) return 'il doit contenir une majuscule'
-    if (!/[a-z]/.test(v)) return 'il doit contenir une minuscule'
-    if (!/[0-9]/.test(v)) return 'il doit contenir un chiffre'
-    if (!/[!@#$%^&*.]/.test(v)) return 'il doit contenir un caractère spécial'
-    return true
-}
+const passwRules = [
+    (v) => !!v || 'Mot de passe requis',
+    (v) => (v && v.length >= 9) || 'Il doit avoir au minimum 9 caracteres',
+    (v) => (v && /[A-Z]/.test(v)) || 'il doit contenir une majuscule',
+    (v) => (v && /[a-z]/.test(v)) || 'il doit contenir une minuscule',
+    (v) => (v && /[0-9]/.test(v)) || 'il doit contenir un chiffre',
+    (v) => (v && /[!@#$%^&*.]/.test(v)) || 'il doit contenir un caractère spécial',
+
+]
 
 const labeltext = [
     (v) => !!v || "le champs est requis",
-    (v) => /^[A-Za-z\s]+$/.test(v) || "seules les lettres et les espaces sont autorisées !",
-    (v) => !/^\s/.test(v) || "la valeur de ce champs ne peut commencé par un espaces !",
-    (v) => !/\s{2,}/.test(v) || "Pas d'espaces multiples ou consecutifs !"
+    (v) => (v && /^[A-Za-z\s]+$/.test(v)) || "seules les lettres et les espaces sont autorisées !",
+    (v) => (v && !/^\s/.test(v)) || "la valeur de ce champs ne peut commencé par un espaces !",
 ]
 
 const emailrules = [
-    v => !!v || "L'adresse mail requis",
-    v => /.+@.+\..+/.test(v) || "Cette adresse mail doit etre valide."
-]
+    (v) => !!v || "L'adresse mail requis",
+    (v) => (v && /.+@.+\..+/.test(v)) || "Cette adresse mail doit etre valide.",
+    (v) => (v && !/^\s/.test(v)) || "la valeur de ce champs ne peut commencé par un espaces !"
 
+]
+function validePolitique (value){
+    case_confident.value = value
+
+}
 async function SubmitFormuler() {
     loading.value = true
     try {
@@ -220,7 +229,6 @@ async function SubmitFormuler() {
     }
     finally {
         loading.value = false
-
     }
 }
 
